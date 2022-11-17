@@ -24,10 +24,13 @@ public class Texto {
 
 
     public TextoMemento createMemento(){
-        return;
+        TextoMemento memento = new TextoMemento(this);
+        return memento;
     }
 
     public void restoreMemento(TextoMemento txtMemento){
-        ;
+        Texto memTxt = txtMemento.getTexto();
+        this.nombre = memTxt.nombre;
+        this.texto = memTxt.texto;
     }
 }

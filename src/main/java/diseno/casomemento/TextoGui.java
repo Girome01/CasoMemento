@@ -12,7 +12,7 @@ public class TextoGui {
     
     public void save(){
         //Guardar en disco??
-        // Agregar la logica para guardar en disco
+        //Agregar la logica para guardar en disco
     }
     
     public void previous(){

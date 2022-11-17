@@ -3,8 +3,13 @@ package diseno.casomemento;
 public class TextoMemento {
     private Texto texto;
 
+    public TextoMemento(Texto texto) {
+        this.texto = texto;
+    }
+    
     public TextoMemento getMemento(TextoMemento txtMemento){
-        return;
+        //No tengo idea de que se realiza aqui
+        return txtMemento;
     }
 
     public Texto getTexto() {
