@@ -6,4 +6,12 @@ public class TextoMemento {
     public TextoMemento getMemento(TextoMemento txtMemento){
         return;
     }
+
+    public Texto getTexto() {
+        return texto;
+    }
+
+    public void setTexto(Texto texto) {
+        this.texto = texto;
+    }
 }

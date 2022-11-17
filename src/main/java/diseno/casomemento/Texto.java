@@ -23,7 +23,7 @@ public class Texto {
     }
 
 
-    public TextoMemento createMemento(TextoMemento txtMemento){
+    public TextoMemento createMemento(){
         return;
     }
 
