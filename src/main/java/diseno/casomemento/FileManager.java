@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 
 public class FileManager {
 
-    public static String readFile (String path) throws FileNotFoundException, IOException
+    public static String readFile (File path) throws FileNotFoundException, IOException
     {
         String everything;
 
@@ -27,19 +27,21 @@ public class FileManager {
     }
     
     //Por favor que el nombre lleve la extension seleccionada
-    public static void writeFile(String texto, String path, String name) throws UnsupportedEncodingException, IOException{
-        try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-              new FileOutputStream(name), "utf-8"))) {
-               writer.write(texto);
-               //Esta parte es para mover el archivo creado al path donde se quiera guardar
-               /*Files.move(
-                    Paths.get("./"+name), 
-                    Paths.get(path)
-                );*/
+    public static void writeFile(String texto, File file) throws UnsupportedEncodingException, IOException{
+        
+        
+        FileWriter escribir;
+        
+        try {
+            
+            escribir = new FileWriter(file, true);
+            escribir.write(texto);
+            escribir.close();
+            
+        } catch (Exception e) {
         }
-        catch(IOException e){
-            System.out.println("Error al abrir el archivo");
-        }
+       
+
     }
 
     // escribe un objeto
