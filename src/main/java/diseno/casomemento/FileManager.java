@@ -1,6 +1,8 @@
 package diseno.casomemento;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class FileManager {
 
@@ -22,6 +24,22 @@ public class FileManager {
         }
 
         return everything;
+    }
+    
+    //Por favor que el nombre lleve la extension seleccionada
+    public static void writeFile(String texto, String path, String name) throws UnsupportedEncodingException, IOException{
+        try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+              new FileOutputStream(name), "utf-8"))) {
+               writer.write(texto);
+               //Esta parte es para mover el archivo creado al path donde se quiera guardar
+               /*Files.move(
+                    Paths.get("./"+name), 
+                    Paths.get(path)
+                );*/
+        }
+        catch(IOException e){
+            System.out.println("Error al abrir el archivo");
+        }
     }
 
     // escribe un objeto
@@ -45,7 +63,7 @@ public class FileManager {
         }
     }
 
-    // escribe un objeto
+    // lee un objeto
     public static Object readObject(String filePath)
     {
         try{
