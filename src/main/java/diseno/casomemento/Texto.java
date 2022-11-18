@@ -3,7 +3,7 @@ package diseno.casomemento;
 public class Texto {
 
     private String texto;
-    private String nombre;
+    private String nombre; //myDocument.txt
 
 
     public String getTexto() {
@@ -31,6 +31,8 @@ public class Texto {
     public void restoreMemento(TextoMemento txtMemento){
         Texto memTxt = txtMemento.getTexto();
         this.nombre = memTxt.nombre;
+        System.out.println(this.texto);
+        System.out.println(memTxt.texto);
         this.texto = memTxt.texto;
     }
 }

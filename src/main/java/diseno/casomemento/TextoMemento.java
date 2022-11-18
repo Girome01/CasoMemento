@@ -4,7 +4,9 @@ public class TextoMemento {
     private Texto texto;
 
     public TextoMemento(Texto texto) {
-        this.texto = texto;
+        this.texto = new Texto();
+        this.texto.setNombre(texto.getNombre());
+        this.texto.setTexto(texto.getTexto());
     }
     
     public TextoMemento getMemento(TextoMemento txtMemento){

@@ -1,8 +1,6 @@
 package diseno.casomemento;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class FileManager {
 

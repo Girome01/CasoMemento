@@ -1,5 +1,7 @@
 package diseno.casomemento;
 
+import Interfaz.GuiTexto;
+
 public class TextoGui {
     private Texto texto;
     private TextoCaretaker caretaker;
@@ -10,26 +12,26 @@ public class TextoGui {
     }
 
     
-    public void save(){
-        //Guardar en disco??
-        //Agregar la logica para guardar en disco
+    public void save(String txt){
+        //La idea es actualizar los mementos con lo que este en texto en este momento
+        //Esta funcion se deberia de llamar siempre que se registre un cambio en el texto
+        texto.setTexto(txt);
+        TextoMemento memento = texto.createMemento();
+        caretaker.addMemento(memento);
     }
     
     public void previous(){
         TextoMemento memento = caretaker.getPrevMemento();
-        texto.restoreMemento(memento);
+        this.texto.restoreMemento(memento);
     }
     
     public void next(){
         TextoMemento memento = caretaker.getNextMemento();
-        texto.restoreMemento(memento);
+        this.texto.restoreMemento(memento);
     }
     
-    public void updateTexto(){
-        //La idea es actualizar los mementos con lo que este en texto en este momento
-        //Esta funcion se deberia de llamar siempre que se registre un cambio en el texto
-        TextoMemento memento = texto.createMemento();
-        caretaker.addMemento(memento);
+    public void updateTexto(GuiTexto refPantalla){//poner refPantalla
+        refPantalla.actualizarTexto(texto.getTexto());
     }
 
     public Texto getTexto() {
