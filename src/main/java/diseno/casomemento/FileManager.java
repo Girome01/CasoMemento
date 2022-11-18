@@ -34,7 +34,7 @@ public class FileManager {
         
         try {
             
-            escribir = new FileWriter(file, true);
+            escribir = new FileWriter(file, false);
             escribir.write(texto);
             escribir.close();
             
