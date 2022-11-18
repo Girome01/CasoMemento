@@ -2,7 +2,7 @@ package diseno.casomemento;
 
 public class Texto {
 
-    private String texto;
+    private String texto; //tags
     private String nombre; //myDocument.txt
 
 
@@ -30,9 +30,7 @@ public class Texto {
 
     public void restoreMemento(TextoMemento txtMemento){
         Texto memTxt = txtMemento.getTexto();
-        this.nombre = memTxt.nombre;
-        System.out.println(this.texto);
-        System.out.println(memTxt.texto);
+        this.nombre = memTxt.nombre;;
         this.texto = memTxt.texto;
     }
 }

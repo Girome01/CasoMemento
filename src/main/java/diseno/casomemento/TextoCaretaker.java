@@ -21,10 +21,8 @@ public class TextoCaretaker {
 
     public TextoMemento getPrevMemento(){
         TextoMemento tmpMemento;
-        System.out.println(this.currentIndex + "Antes if");
         if(this.currentIndex > 0){
             this.currentIndex -= 1;
-            System.out.println(this.currentIndex + "Despues if");
             tmpMemento = this.mementoList.get(currentIndex);
             this.texto = tmpMemento.getTexto();
             return tmpMemento;
@@ -37,10 +35,8 @@ public class TextoCaretaker {
     public TextoMemento getNextMemento(){
         TextoMemento tmpMemento;
         int top = this.mementoList.size();
-        System.out.println(this.currentIndex + "Antes if");
         if(this.currentIndex < (top-1) ){
             this.currentIndex += 1;
-            System.out.println(this.currentIndex + "Despues if");
             tmpMemento = this.mementoList.get(currentIndex);
             this.texto = tmpMemento.getTexto();
             return tmpMemento;
