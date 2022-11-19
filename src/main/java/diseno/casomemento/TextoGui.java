@@ -1,6 +1,7 @@
 package diseno.casomemento;
 
 import Interfaz.GuiTexto;
+import javax.swing.text.BadLocationException;
 
 public class TextoGui {
     private Texto texto;
@@ -30,7 +31,7 @@ public class TextoGui {
         this.texto.restoreMemento(memento);
     }
     
-    public void updateTexto(GuiTexto refPantalla){//poner refPantalla
+    public void updateTexto(GuiTexto refPantalla) throws BadLocationException{//poner refPantalla
         refPantalla.actualizarTexto(texto.getTexto());
     }
 
