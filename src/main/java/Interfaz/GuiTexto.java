@@ -323,23 +323,10 @@ public class GuiTexto extends javax.swing.JFrame {
     private void txtAreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAreaKeyReleased
         // TODO add your handling code here:
         switch (evt.getKeyCode()) {
-            case 32:
-                this.textoGui.save(txtArea.getText()+" ");
-                break;
-            case 10: 
-                this.textoGui.save(txtArea.getText()+"\n");
-                break;
-            case 9: 
-                this.textoGui.save(txtArea.getText()+"\t");
-                break;
-            case 46:
-                this.textoGui.save(txtArea.getText()+".");
-                break;
-            case 8: case 127:
+            case 32: case 10: case 9: case 46: case 8: case 127:
                 this.textoGui.save(txtArea.getText());
                 break;
             default:
-                Document doc = txtArea.getStyledDocument();
                 
         }
     }//GEN-LAST:event_txtAreaKeyReleased
