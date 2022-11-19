@@ -2,7 +2,7 @@ package diseno.casomemento;
 
 public class Texto {
 
-    private String texto; //tags
+    private String texto = ""; //tags
     private String nombre; //myDocument.txt
 
 
@@ -30,7 +30,7 @@ public class Texto {
 
     public void restoreMemento(TextoMemento txtMemento){
         Texto memTxt = txtMemento.getTexto();
-        this.nombre = memTxt.nombre;;
+        this.nombre = memTxt.nombre;
         this.texto = memTxt.texto;
     }
     
@@ -39,6 +39,15 @@ public class Texto {
     }
     
     public void addTexto(String txt){
-        this.texto += txt.substring(this.texto.length()-1);
+        if(this.texto == "" || this.texto.length()-1 <= 0)
+            this.texto += txt;
+        else{
+            System.out.println("Color tag"+this.texto);
+            String sinTags = Formateador.noColorTags(this.texto);
+            System.out.println("print sin tag" + sinTags);
+            this.texto += txt.substring(sinTags.length()-1);
+            System.out.println(this.texto);
+        }
     }
+        
 }

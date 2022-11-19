@@ -5,6 +5,7 @@
 package Interfaz;
 
 import diseno.casomemento.FileManager;
+import diseno.casomemento.Formateador;
 import diseno.casomemento.Texto;
 import diseno.casomemento.TextoGui;
 import java.awt.Color;
@@ -60,7 +61,7 @@ public class GuiTexto extends javax.swing.JFrame {
     
     public void actualizarTexto(String texto) throws BadLocationException{
         txtArea.setText("");
-        ArrayList<String> format = null; //Agregar la clase que formatea
+        ArrayList<String> format = Formateador.listaFormatText(texto); //Agregar la clase que formatea
         for(int i = 0; i < format.size(); i++){
             if(i%2==0)
                 this.cambiarColor(format.get(i));
