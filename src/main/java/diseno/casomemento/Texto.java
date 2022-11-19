@@ -39,15 +39,13 @@ public class Texto {
     }
     
     public void addTexto(String txt){
-        if(this.texto.equals("") || this.texto.length()-1 <= 0)
+        String sinTags = Formateador.noColorTags(this.texto);
+        if(this.texto.isEmpty() || Formateador.noColorTags(this.texto).length()-1 <= 0)
             this.texto += txt;
-        else{
-            System.out.println("Color tag"+this.texto);
-            String sinTags = Formateador.noColorTags(this.texto);
-            System.out.println("print sin tag" + sinTags);
-            this.texto += txt.substring(sinTags.length()-1);
-            System.out.println(this.texto);
-        }
+        else if(sinTags.length() < txt.length()){
+            this.texto += txt.substring((sinTags.length()-1));
+        }else
+            this.texto = updateTexto(this.texto, txt);
     }
         
 }
