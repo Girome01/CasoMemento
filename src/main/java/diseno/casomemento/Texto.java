@@ -39,7 +39,7 @@ public class Texto {
     }
     
     public void addTexto(String txt){
-        if(this.texto == "" || this.texto.length()-1 <= 0)
+        if(this.texto.equals("") || this.texto.length()-1 <= 0)
             this.texto += txt;
         else{
             System.out.println("Color tag"+this.texto);
