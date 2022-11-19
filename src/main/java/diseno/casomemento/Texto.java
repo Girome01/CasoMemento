@@ -33,4 +33,8 @@ public class Texto {
         this.nombre = memTxt.nombre;;
         this.texto = memTxt.texto;
     }
+    
+    public void addColor(String color){
+        this.texto = this.texto + "<" + color + ">";
+    }
 }
