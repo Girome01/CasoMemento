@@ -1,5 +1,7 @@
 package diseno.casomemento;
 
+import static diseno.casomemento.Formateador.updateTexto;
+
 public class Texto {
 
     private String texto = ""; //tags

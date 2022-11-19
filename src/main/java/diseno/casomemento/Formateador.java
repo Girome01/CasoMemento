@@ -44,40 +44,31 @@ public class Formateador {
         String currentColor = oldTextTags.substring(0,8);
         boolean currentColorApplied = false;
 
-        int oldTextIndex = 9;
+        int oldTextIndex = 0;
 
         for (int i = 0; i < newText.length(); i++) {
-            System.out.println("old " + oldTextTags.charAt(oldTextIndex) + " new " + newText.charAt(i));
-            switch (oldTextTags.charAt(oldTextIndex)) {
-                case '<':
-                    if (oldTextTags.charAt(i++) == '#'){
-                        currentColor = oldTextTags.substring(oldTextIndex,oldTextIndex+9);
-                        currentColorApplied = false;
-                        oldTextIndex += 9;
-                       break;
-                    }
-                default:
-                    if (newText.charAt(i) == oldTextTags.charAt(oldTextIndex)){
-                        if(!currentColorApplied){
-                            finalText += currentColor;
-                            currentColorApplied = true;
-                        }
-                        finalText += newText.charAt(i);
-                    }
-                    else {
-                        finalText += newText.charAt(i);
-                    }
-                    break;
-
+            if (oldTextTags.charAt(oldTextIndex) == '<') {
+                if (oldTextTags.charAt(oldTextIndex+1) == '#'){
+                    currentColor = oldTextTags.substring(oldTextIndex,oldTextIndex+9);
+                    currentColorApplied = false;
+                    oldTextIndex += 9;
+                }
             }
+            if (newText.charAt(i) == oldTextTags.charAt(oldTextIndex)){
+                if(!currentColorApplied){
+                    finalText += currentColor;
+                    currentColorApplied = true;
+                }
+            }
+            finalText += newText.charAt(i);
             oldTextIndex++;
         }
         return finalText;
 
     }
 
-    public static void main(String[] args) {
-        System.out.println(updateTexto("<#FFFFFF>Hola mundo <#FF0000> Soy gilbert\n < <#FFFF00> me again <", "Hola Mundo  gilbert"));
-    }
+    /*public static void main(String[] args) {
+        System.out.println(updateTexto("<#FFFFFF>Hola <#FF0111>mundo <#FF0000> Soy gilbert\n < <#FFFF00> me again <", "Hola Mundo  Soy"));
+    }*/
 
 }
