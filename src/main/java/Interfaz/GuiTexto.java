@@ -83,11 +83,13 @@ public class GuiTexto extends javax.swing.JFrame {
         txtArea = new javax.swing.JTextPane();
         panelBtn = new javax.swing.JPanel();
         btnAbrir = new javax.swing.JButton();
-        guardarComoBtn = new javax.swing.JButton();
+        btnGuardarJson = new javax.swing.JButton();
         jColor = new javax.swing.JColorChooser();
         btnSiguiente = new javax.swing.JButton();
         btnAnterior = new javax.swing.JButton();
         btnCambiarColor = new javax.swing.JButton();
+        btnGuardarTxt = new javax.swing.JButton();
+        btnGuardarTSV = new javax.swing.JButton();
 
         btnGuardar1.setBackground(new java.awt.Color(0, 102, 255));
         btnGuardar1.setText("Guardar");
@@ -115,7 +117,7 @@ public class GuiTexto extends javax.swing.JFrame {
             .addGroup(panelTextoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         panelTextoLayout.setVerticalGroup(
             panelTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,11 +138,12 @@ public class GuiTexto extends javax.swing.JFrame {
             }
         });
 
-        guardarComoBtn.setBackground(new java.awt.Color(0, 102, 255));
-        guardarComoBtn.setText("Guardar como");
-        guardarComoBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarJson.setBackground(new java.awt.Color(0, 102, 255));
+        btnGuardarJson.setText("Guardar como Json");
+        btnGuardarJson.setToolTipText("");
+        btnGuardarJson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarComoBtnActionPerformed(evt);
+                btnGuardarJsonActionPerformed(evt);
             }
         });
 
@@ -183,6 +186,26 @@ public class GuiTexto extends javax.swing.JFrame {
             }
         });
 
+        btnGuardarTxt.setBackground(new java.awt.Color(0, 102, 255));
+        btnGuardarTxt.setText("Guardar como Texto");
+        btnGuardarTxt.setToolTipText("");
+        btnGuardarTxt.setActionCommand("Guardar como ");
+        btnGuardarTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarTxtActionPerformed(evt);
+            }
+        });
+
+        btnGuardarTSV.setBackground(new java.awt.Color(0, 102, 255));
+        btnGuardarTSV.setText("Guardar como Tabulado");
+        btnGuardarTSV.setToolTipText("");
+        btnGuardarTSV.setActionCommand("Guardar como Tabulado");
+        btnGuardarTSV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarTSVActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelBtnLayout = new javax.swing.GroupLayout(panelBtn);
         panelBtn.setLayout(panelBtnLayout);
         panelBtnLayout.setHorizontalGroup(
@@ -190,16 +213,16 @@ public class GuiTexto extends javax.swing.JFrame {
             .addGroup(panelBtnLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelBtnLayout.createSequentialGroup()
-                        .addGroup(panelBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(guardarComoBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                            .addComponent(btnAnterior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnSiguiente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAbrir, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
-                    .addComponent(btnCambiarColor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(btnAnterior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCambiarColor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGuardarJson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGuardarTSV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSiguiente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAbrir, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(btnGuardarTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
                 .addComponent(jColor, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -209,17 +232,22 @@ public class GuiTexto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBtnLayout.createSequentialGroup()
-                        .addGroup(panelBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(guardarComoBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                            .addComponent(btnAbrir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(12, 12, 12)
                         .addGroup(panelBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelBtnLayout.createSequentialGroup()
+                                .addGroup(panelBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCambiarColor, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(12, 12, 12)
+                                .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCambiarColor, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnGuardarJson, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnGuardarTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGuardarTSV, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jColor, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -236,9 +264,9 @@ public class GuiTexto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -280,7 +308,7 @@ public class GuiTexto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardar1ActionPerformed
 
-    private void guardarComoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarComoBtnActionPerformed
+    private void btnGuardarJsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarJsonActionPerformed
             
         JFileChooser guardar = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES","txt", "*.txt","json","*.json","*.tsv","tsv");
@@ -298,7 +326,7 @@ public class GuiTexto extends javax.swing.JFrame {
             Logger.getLogger(GuiTexto.class.getName()).log(Level.SEVERE, null, ex);
         }
        
-    }//GEN-LAST:event_guardarComoBtnActionPerformed
+    }//GEN-LAST:event_btnGuardarJsonActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         // TODO add your handling code here:
@@ -355,6 +383,14 @@ public class GuiTexto extends javax.swing.JFrame {
         System.out.println(textoGui.getTexto().getTexto());
     }//GEN-LAST:event_btnCambiarColorActionPerformed
 
+    private void btnGuardarTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarTxtActionPerformed
+
+    private void btnGuardarTSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTSVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarTSVActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -399,8 +435,10 @@ public class GuiTexto extends javax.swing.JFrame {
     private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btnCambiarColor;
     private javax.swing.JButton btnGuardar1;
+    private javax.swing.JButton btnGuardarJson;
+    private javax.swing.JButton btnGuardarTSV;
+    private javax.swing.JButton btnGuardarTxt;
     private javax.swing.JButton btnSiguiente;
-    private javax.swing.JButton guardarComoBtn;
     private javax.swing.JColorChooser jColor;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel panelBtn;
