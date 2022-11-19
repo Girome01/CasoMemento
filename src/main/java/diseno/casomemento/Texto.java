@@ -37,4 +37,8 @@ public class Texto {
     public void addColor(String color){
         this.texto = this.texto + "<" + color + ">";
     }
+    
+    public void addTexto(String txt){
+        this.texto += txt.substring(this.texto.length()-1);
+    }
 }

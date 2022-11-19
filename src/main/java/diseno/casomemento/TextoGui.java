@@ -16,7 +16,7 @@ public class TextoGui {
     public void save(String txt){
         //La idea es actualizar los mementos con lo que este en texto en este momento
         //Esta funcion se deberia de llamar siempre que se registre un cambio en el texto
-        texto.setTexto(txt);
+        texto.addTexto(txt);
         TextoMemento memento = texto.createMemento();
         caretaker.addMemento(memento);
     }
